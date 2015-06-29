@@ -70,8 +70,8 @@ app
   .command('generate-test [directory]')
   .description('Generate the test template')
   .option('-p, --path-name [path]', 'a sepecific path of the api, also suppport regular expression')
-  .option('-f, --test-module <module>', 'one of: ' + testmodules, project.testmodules[0])
-  .option('-t, --assertion-format <type>', 'one of: ' + assertiontypes, project.assertiontypes[0])
+  .option('-f, --test-module <module>', 'one of: ' + testmodules)
+  .option('-t, --assertion-format <type>', 'one of: ' + assertiontypes)
   .action(execute(project.generateTest));
 
 app.parse(process.argv);
