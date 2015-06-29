@@ -346,10 +346,12 @@ describe('project', function() {
       project.create(name, { framework: 'connect' }, done);
     });
 
+
     it('should pass test-module options', function(done) {
       var options = { testModule: 'request' };
       project.generateTest(projPath, options, function(err) {
-        fs.existSync(path.resolve(projPath, 'test/helloStub.js')).should.be.ok;
+        should.not.exist(err);
+        fs.existsSync(path.resolve(projPath, 'test/helloStub.js')).should.be.ok;
         done();
       });
     });
@@ -365,7 +367,7 @@ describe('project', function() {
     it('should pass assertion-format options', function(done) {
       var options = { assertionFormat: "expect" };
       project.generateTest(projPath, options, function(err) {
-        fs.existSync(path.resolve(projPath, 'test/helloStub.js')).should.be.ok;
+        fs.existsSync(path.resolve(projPath, 'test/helloStub.js')).should.be.ok;
         done();
       });
     });
@@ -381,7 +383,7 @@ describe('project', function() {
     it('should generate testing stubs for the project successfully', function(done) {
       var options = {pathName: '.*'};
       project.generateTest(projPath, options, function(err) {
-        fs.existSync(path.resolve(projPath, 'test/helloStub.js')).should.be.ok;
+        fs.existsSync(path.resolve(projPath, 'test/helloStub.js')).should.be.ok;
         done();
       })
     });
